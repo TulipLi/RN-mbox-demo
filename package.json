@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'"
+    "build:ios": "react-native run-ios --port 8083"
   },
   "dependencies": {
     "react": "16.6.1",
