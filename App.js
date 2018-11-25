@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
-export default class HelloWorldApp extends Component {
+import {observer} from 'mobx-react/native';
+import { observable } from 'mobx';
+
+import TodoList from  './store'
+
+@observer
+class HelloWorldApp extends Component {
+  todoList = new TodoList()
   render() {
-    console.info("hello world")
+    console.info(this.todoList.todos)
     return (
         <View style={styles.container}>
-          <Text style={styles.helloworld}>Hello world!</Text>
+          <View style={styles.uncompletedArea}>
+            <Text style={styles.title}>未完成的项目</Text>
+          </View>
+          <View style={styles.completedArea}>
+            <Text style={styles.title}>已完成的项目</Text>
+          </View>
         </View>
     );
   }
@@ -19,7 +31,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  helloworld: {
-    textAlign: 'center',
+  uncompletedArea: {
+
+  },
+  completedArea: {
+
+  },
+  title: {
+
   }
 })
+
+
+export default HelloWorldApp
